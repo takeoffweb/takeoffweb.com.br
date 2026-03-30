@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Take Off — Sistema de Conversão Digital</title>
+  <meta name="description" content="Faça seu negócio decolar com um site que gera clientes. Design profissional, estratégia de conversão e automação com IA."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     NAV
+═══════════════════════════════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <div class="nav-row">
+      <div class="nav-left">
+        <a href="#solucao" class="nav-link">Solução</a>
+        <a href="#processo" class="nav-link">Processo</a>
+      </div>
+      <a href="#hero" class="nav-logo">
+        <img src="logo.png" alt="Take Off" class="nav-logo-img"/>
+      </a>
+      <div class="nav-right">
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-nav">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.7-6.413-1.9l-.448-.298-3.1 1.04 1.04-3.1-.298-.448A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+      <button class="ham" id="ham" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mob" id="mob">
+  <a href="#solucao"   onclick="closeMob()">Solução</a>
+  <a href="#processo"  onclick="closeMob()">Processo</a>
+  <a href="#portfolio" onclick="closeMob()">Portfólio</a>
+  <a href="#faq"       onclick="closeMob()">FAQ</a>
+  <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-nav" onclick="closeMob()">WhatsApp</a>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════════════════════════ -->
+<section id="hero">
+
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
+
+  <div class="hero-trails" aria-hidden="true">
+    <div class="hero-trail hero-trail-1"></div>
+    <div class="hero-trail hero-trail-2"></div>
+    <div class="hero-trail hero-trail-3"></div>
+    <div class="hero-trail hero-trail-4"></div>
+    <div class="hero-trail hero-trail-5"></div>
+    <div class="hero-trail hero-trail-6"></div>
+    <div class="hero-trail hero-trail-7"></div>
+    <div class="hero-trail hero-trail-8"></div>
+    <div class="hero-smoke hero-smoke-1"></div>
+    <div class="hero-smoke hero-smoke-2"></div>
+    <div class="hero-smoke hero-smoke-3"></div>
+    <div class="hero-smoke hero-smoke-4"></div>
+    <div class="hero-smoke hero-smoke-5"></div>
+    <div class="hero-fire hero-fire-1"></div>
+    <div class="hero-fire hero-fire-2"></div>
+    <div class="hero-fire hero-fire-3"></div>
+    <div class="hero-fire hero-fire-4"></div>
+    <div class="hero-fire hero-fire-5"></div>
+    <div class="hero-fire hero-fire-6"></div>
+    <div class="hero-fire hero-fire-7"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-inner">
+
+      <div class="hero-center">
+        <div class="hero-badge">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          Sistemas de conversão digital
+        </div>
+        <h1 class="hero-h1">
+          Faça seu negócio <em>decolar</em> com um site que gera clientes.
+        </h1>
+        <p class="hero-p">
+          Design profissional, estratégia de conversão e automação com IA —
+          do primeiro clique ao cliente fechado via WhatsApp.
+        </p>
+        <div class="hero-btns">
+          <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-accent" id="ctaMain">
+            <svg class="btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+              <path d="M20 3c0 0-5.5 2-8.5 7C10 12.5 10 15 11 16.5c1 1.5 3.5 1.5 5 0 5-3 7-8.5 7-8.5z"/>
+              <path d="m12 15-3-3"/>
+            </svg>
+            Iniciar decolagem
+          </a>
+          <a href="#solucao" class="btn btn-ghost">
+            Ver como funciona
+            <svg class="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="flow-card" id="flowCard">
+        <div class="flow-label">Como o sistema funciona</div>
+        <div class="flow-track" id="flowTrack">
+          <div class="flow-line-bg"></div>
+          <div class="flow-line-fill" id="flowLineFill"></div>
+          <div class="flow-rocket" id="flowRocket" aria-hidden="true">
+            <svg width="36" height="22" viewBox="0 0 36 22" fill="none">
+              <ellipse cx="4"   cy="11" rx="4"  ry="2.5" fill="rgba(255,200,60,.9)"/>
+              <ellipse cx="5.5" cy="11" rx="3"  ry="1.8" fill="rgba(255,240,150,1)"/>
+              <ellipse cx="18"  cy="11" rx="11" ry="5"   fill="#1e1e1e" stroke="#2a2a2a" stroke-width=".5"/>
+              <ellipse cx="17"  cy="8.5" rx="6" ry="1.5" fill="rgba(255,255,255,.05)"/>
+              <path d="M29 6.5 C31 7.5 34 9 36 11 C34 13 31 14.5 29 15.5 Z" fill="#f03d00"/>
+              <path d="M14 6.5 L10 2 L8 5 L14 8 Z"    fill="#f03d00"/>
+              <path d="M14 15.5 L10 20 L8 17 L14 14 Z" fill="#f03d00"/>
+              <circle cx="22" cy="11" r="3"   fill="#0a0a0a" stroke="rgba(240,61,0,.5)" stroke-width=".8"/>
+              <circle cx="22" cy="11" r="1.5" fill="rgba(240,61,0,.25)"/>
+              <ellipse cx="21" cy="9.8" rx="1" ry=".5" fill="rgba(255,255,255,.15)"/>
+              <rect x="6" y="9" width="5" height="4" rx="1" fill="#111" stroke="rgba(240,61,0,.3)" stroke-width=".5"/>
+            </svg>
+          </div>
+          <div class="flow-steps" id="flowDesktop">
+            <div class="flow-step" data-step="0">
+              <div class="flow-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg></div>
+              <span class="flow-step-name">Visitante</span>
+              <span class="flow-step-desc">Tráfego chega ao site</span>
+            </div>
+            <div class="flow-step" data-step="1">
+              <div class="flow-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
+              <span class="flow-step-name">Site Estratégico</span>
+              <span class="flow-step-desc">Estrutura que converte</span>
+            </div>
+            <div class="flow-step" data-step="2">
+              <div class="flow-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
+              <span class="flow-step-name">WhatsApp</span>
+              <span class="flow-step-desc">Lead inicia contato</span>
+            </div>
+            <div class="flow-step" data-step="3">
+              <div class="flow-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+              <span class="flow-step-name">Automação IA</span>
+              <span class="flow-step-desc">Responde e qualifica</span>
+            </div>
+            <div class="flow-step" data-step="4">
+              <div class="flow-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+              <span class="flow-step-name">Cliente</span>
+              <span class="flow-step-desc">Conversão finalizada</span>
+            </div>
+          </div>
+        </div>
+        <div class="flow-mobile" id="flowMobile">
+          <div class="flow-m-dot"></div>
+          <div class="flow-m-step"><div class="flow-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg></div><div class="flow-m-info"><span class="flow-step-name">Visitante</span><span class="flow-step-desc">Tráfego chega ao site</span></div></div>
+          <div class="flow-m-step"><div class="flow-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div><div class="flow-m-info"><span class="flow-step-name">Site Estratégico</span><span class="flow-step-desc">Estrutura que converte</span></div></div>
+          <div class="flow-m-step"><div class="flow-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div><div class="flow-m-info"><span class="flow-step-name">WhatsApp</span><span class="flow-step-desc">Lead inicia contato</span></div></div>
+          <div class="flow-m-step"><div class="flow-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="flow-m-info"><span class="flow-step-name">Automação IA</span><span class="flow-step-desc">Resposta automática qualifica</span></div></div>
+          <div class="flow-m-step"><div class="flow-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div><div class="flow-m-info"><span class="flow-step-name">Cliente</span><span class="flow-step-desc">Conversão finalizada</span></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="flow-smoke" id="flowSmoke" aria-hidden="true"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SOLUÇÃO
+═══════════════════════════════════════════════════════════════════ -->
+<section id="solucao">
+  <div class="container">
+
+    <div class="sol-header">
+      <span class="label rv">A solução</span>
+      <h2 class="rv d1">Não fazemos site.<br>Criamos <em class="sol-em">sistemas</em>.</h2>
+      <p class="sol-sub rv d2">Cada entrega é pensada para transformar visitante em lead — e lead em cliente fechado. Do design à automação, tudo integrado.</p>
+    </div>
+
+    <div class="sol-grid">
+      <div class="sol-card rv d1">
+        <div class="sol-card-top">
+          <div class="sol-num">01</div>
+          <div class="sol-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+            </svg>
+          </div>
+        </div>
+        <h3>Presença Estratégica</h3>
+        <p>Site com UX e arquitetura desenvolvidos para converter — não para impressionar. Cada elemento posicionado com um propósito claro.</p>
+        <div class="sol-tag">Design & Estrutura</div>
+      </div>
+      <div class="sol-card rv d2">
+        <div class="sol-card-top">
+          <div class="sol-num">02</div>
+          <div class="sol-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+            </svg>
+          </div>
+        </div>
+        <h3>Copy de Conversão</h3>
+        <p>Cada palavra posicionada para guiar o visitante à ação certa, no momento certo. Texto que vende sem parecer que está vendendo.</p>
+        <div class="sol-tag">Estratégia & Copy</div>
+      </div>
+      <div class="sol-card rv d3">
+        <div class="sol-card-top">
+          <div class="sol-num">03</div>
+          <div class="sol-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+        </div>
+        <h3>Automação com IA</h3>
+        <p>Chatbot 24/7 no WhatsApp. Seu negócio agenda, responde e qualifica leads enquanto você foca no que sabe fazer.</p>
+        <div class="sol-tag">IA & Automação</div>
+      </div>
+    </div>
+
+    <div class="sol-statement rv d3">
+      <p>Enquanto agências entregam sites, a TakeOff entrega um <strong>sistema vivo</strong> — que atrai, converte e agenda sem intervenção manual.</p>
+      <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-accent">
+        <svg class="btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+          <path d="M20 3c0 0-5.5 2-8.5 7C10 12.5 10 15 11 16.5c1 1.5 3.5 1.5 5 0 5-3 7-8.5 7-8.5z"/>
+          <path d="m12 15-3-3"/>
+        </svg>
+        Iniciar decolagem
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     PROCESSO — sticky scroll
+═══════════════════════════════════════════════════════════════════ -->
+<section id="processo" class="proc-section">
+
+  <div class="proc-intro container">
+    <span class="label rv">Processo</span>
+    <h2 class="rv d1">Do diagnóstico ao sistema<br>no ar. Em etapas claras.</h2>
+    <p class="proc-intro-sub rv d2">4 etapas simples. Do diagnóstico ao site gerando resultados.</p>
+  </div>
+
+  <div class="proc-stack">
+
+    <div class="proc-step-sticky" data-step="1" style="--step-bg:#111113;--step-z:1">
+      <div class="container">
+        <div class="proc-step-inner">
+          <div class="proc-step-left">
+            <div class="proc-step-num">01</div>
+            <h3 class="proc-step-title">Diagnóstico</h3>
+            <p class="proc-step-desc">Entendemos seu negócio, seu cliente ideal e onde você está perdendo oportunidades hoje. Nada é assumido — tudo é mapeado.</p>
+            <ul class="proc-step-list">
+              <li>Análise do negócio e público-alvo</li>
+              <li>Mapeamento do fluxo de conversão atual</li>
+              <li>Identificação de gargalos e oportunidades</li>
+            </ul>
+          </div>
+          <div class="proc-step-right">
+            <div class="proc-step-visual">
+              <div class="proc-vis-label">Diagnóstico</div>
+              <div class="proc-vis-items">
+                <div class="proc-vis-item"><span class="proc-vis-dot" style="background:#71717a"></span>Negócio invisível digitalmente<span class="proc-vis-status" style="color:#71717a">Identificado</span></div>
+                <div class="proc-vis-item"><span class="proc-vis-dot" style="background:#71717a"></span>Leads perdendo no meio do caminho<span class="proc-vis-status" style="color:#71717a">Identificado</span></div>
+                <div class="proc-vis-item"><span class="proc-vis-dot" style="background:#71717a"></span>Sem processo de conversão definido<span class="proc-vis-status" style="color:#71717a">Identificado</span></div>
+                <div class="proc-vis-item proc-vis-item-accent"><span class="proc-vis-dot" style="background:#f03d00"></span>Potencial de crescimento<span class="proc-vis-status" style="color:#f03d00">Alto</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="proc-step-num-bg" aria-hidden="true">01</div>
+    </div>
+
+    <div class="proc-step-sticky" data-step="2" style="--step-bg:#161618;--step-z:2">
+      <div class="container">
+        <div class="proc-step-inner">
+          <div class="proc-step-left">
+            <div class="proc-step-num">02</div>
+            <h3 class="proc-step-title">Estratégia</h3>
+            <p class="proc-step-desc">Definimos estrutura, copy e fluxo de conversão antes de escrever uma linha de código. O sistema é pensado antes de ser construído.</p>
+            <ul class="proc-step-list">
+              <li>Arquitetura da página e hierarquia visual</li>
+              <li>Copy estratégica para cada seção</li>
+              <li>Fluxo WhatsApp e automação planejados</li>
+            </ul>
+          </div>
+          <div class="proc-step-right">
+            <div class="proc-step-visual">
+              <div class="proc-vis-label">Estratégia</div>
+              <div class="proc-vis-wireframe">
+                <div class="proc-wire-nav"></div>
+                <div class="proc-wire-hero">
+                  <div class="proc-wire-h1"></div>
+                  <div class="proc-wire-h2"></div>
+                  <div class="proc-wire-btn"></div>
+                </div>
+                <div class="proc-wire-cards">
+                  <div class="proc-wire-card"></div>
+                  <div class="proc-wire-card"></div>
+                  <div class="proc-wire-card"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="proc-step-num-bg" aria-hidden="true">02</div>
+    </div>
+
+    <div class="proc-step-sticky" data-step="3" style="--step-bg:#1a1a1d;--step-z:3">
+      <div class="container">
+        <div class="proc-step-inner">
+          <div class="proc-step-left">
+            <div class="proc-step-num">03</div>
+            <h3 class="proc-step-title">Desenvolvimento</h3>
+            <p class="proc-step-desc">Site e automação construídos com tecnologia e IA integradas desde o início. Velocidade e precisão — entrega em até 7 dias.</p>
+            <ul class="proc-step-list">
+              <li>Desenvolvimento do site estratégico</li>
+              <li>Integração com WhatsApp e chatbot IA</li>
+              <li>Testes de performance e conversão</li>
+            </ul>
+          </div>
+          <div class="proc-step-right">
+            <div class="proc-step-visual">
+              <div class="proc-vis-label">Desenvolvimento</div>
+              <div class="proc-vis-code">
+                <div class="proc-code-line"><span class="proc-code-kw">const</span> sistema <span class="proc-code-op">=</span> <span class="proc-code-fn">TakeOff</span><span class="proc-code-p">()</span></div>
+                <div class="proc-code-line proc-code-indent"><span class="proc-code-kw">.</span><span class="proc-code-fn">site</span><span class="proc-code-p">(</span><span class="proc-code-str">'estratégico'</span><span class="proc-code-p">)</span></div>
+                <div class="proc-code-line proc-code-indent"><span class="proc-code-kw">.</span><span class="proc-code-fn">automacao</span><span class="proc-code-p">(</span><span class="proc-code-str">'whatsapp'</span><span class="proc-code-p">)</span></div>
+                <div class="proc-code-line proc-code-indent"><span class="proc-code-kw">.</span><span class="proc-code-fn">ia</span><span class="proc-code-p">(</span><span class="proc-code-str">'24/7'</span><span class="proc-code-p">)</span></div>
+                <div class="proc-code-line proc-code-indent"><span class="proc-code-kw">.</span><span class="proc-code-fn">deploy</span><span class="proc-code-p">()</span></div>
+                <div class="proc-code-comment">// Sistema pronto em 7 dias</div>
+                <div class="proc-code-cursor" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="proc-step-num-bg" aria-hidden="true">03</div>
+    </div>
+
+    <div class="proc-step-sticky" data-step="4" style="--step-bg:#0f0f11;--step-z:4">
+      <div class="container">
+        <div class="proc-step-inner">
+          <div class="proc-step-left">
+            <div class="proc-step-num" style="color:var(--accent)">04</div>
+            <h3 class="proc-step-title">Ativação</h3>
+            <p class="proc-step-desc">Sistema no ar, testado e funcionando. Você começa a receber leads no primeiro dia — e a gente acompanha os primeiros resultados com você.</p>
+            <ul class="proc-step-list">
+              <li>Publicação e configuração completa</li>
+              <li>WhatsApp conectado e automação ativa</li>
+              <li>Primeiros leads chegando no dia 1</li>
+            </ul>
+            <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-accent" style="margin-top:32px">
+              <svg class="btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+                <path d="M20 3c0 0-5.5 2-8.5 7C10 12.5 10 15 11 16.5c1 1.5 3.5 1.5 5 0 5-3 7-8.5 7-8.5z"/>
+                <path d="m12 15-3-3"/>
+              </svg>
+              Quero decolar agora
+            </a>
+          </div>
+          <div class="proc-step-right">
+            <div class="proc-step-visual proc-step-visual-active">
+              <div class="proc-vis-label" style="color:#f03d00">Sistema ativo</div>
+              <div class="proc-vis-metrics">
+                <div class="proc-metric-item"><div class="proc-metric-val">24/7</div><div class="proc-metric-lbl">Sistema operando</div></div>
+                <div class="proc-metric-item"><div class="proc-metric-val" style="color:#f03d00">+leads</div><div class="proc-metric-lbl">Chegando via WhatsApp</div></div>
+                <div class="proc-metric-item"><div class="proc-metric-val">7d</div><div class="proc-metric-lbl">Prazo de entrega</div></div>
+              </div>
+              <div class="proc-vis-pulse" aria-hidden="true"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="proc-step-num-bg" aria-hidden="true">04</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     PORTFÓLIO
+═══════════════════════════════════════════════════════════════════ -->
+<section id="portfolio">
+  <div class="container">
+
+    <div class="port-header">
+      <span class="label rv">Portfólio</span>
+      <h2 class="rv d1">Sistemas que já estão<br>gerando resultado.</h2>
+      <p class="port-sub rv d2">Não falamos só de sites bonitos. Falamos de negócios que cresceram.</p>
+    </div>
+
+    <div class="port-grid">
+
+      <div class="port-card rv d1">
+        <div class="port-preview">
+          <div class="port-browser">
+            <div class="port-browser-bar">
+              <div class="port-dots"><span></span><span></span><span></span></div>
+              <div class="port-url">dentalvitta.com.br</div>
+            </div>
+            <div class="port-screen" style="background:#0b1a2e">
+              <div class="port-mock-nav">
+                <div class="port-mock-logo" style="color:#64b5f6">Dental<span style="color:#90caf9">Vitta</span></div>
+                <div class="port-mock-links"><span>Tratamentos</span><span>Equipe</span><span style="background:#1a5c9a;color:#fff;padding:2px 7px;border-radius:20px">Agendar</span></div>
+              </div>
+              <div class="port-mock-hero">
+                <div class="port-mock-copy">
+                  <div class="port-mock-h1">Sorria com<br>confiança</div>
+                  <div class="port-mock-p">Odontologia estética e preventiva</div>
+                  <div class="port-mock-btn" style="background:#1a5c9a">Agendar consulta →</div>
+                </div>
+                <div class="port-mock-img" style="background:linear-gradient(135deg,#0f2744,#1a3a6b)"></div>
+              </div>
+              <div class="port-mock-cards">
+                <div class="port-mock-card" style="background:#0f2340"><div style="color:#64b5f6;font-size:5px;font-weight:700">Clareamento</div></div>
+                <div class="port-mock-card" style="background:#0f2340"><div style="color:#64b5f6;font-size:5px;font-weight:700">Implantes</div></div>
+                <div class="port-mock-card" style="background:#0f2340"><div style="color:#64b5f6;font-size:5px;font-weight:700">Lentes</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-info-top">
+            <span class="port-tag">Caso real</span>
+            <div class="port-badges">
+              <span class="port-badge">Odontologia</span>
+              <span class="port-badge">WhatsApp</span>
+              <span class="port-badge">Agendamento</span>
+            </div>
+          </div>
+          <h3>Dental Vitta</h3>
+          <p>Sistema de captação com agendamento integrado ao WhatsApp — do primeiro clique ao paciente confirmado, sem intervenção manual.</p>
+          <div class="port-metrics">
+            <div class="port-metric"><div class="port-metric-val"><em>4x</em></div><div class="port-metric-lbl">Mais tráfego orgânico</div></div>
+            <div class="port-metric"><div class="port-metric-val"><em>92%</em></div><div class="port-metric-lbl">Taxa de satisfação</div></div>
+            <div class="port-metric"><div class="port-metric-val">24/7</div><div class="port-metric-lbl">Agendamento automático</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-card rv d2">
+        <div class="port-preview">
+          <div class="port-browser">
+            <div class="port-browser-bar">
+              <div class="port-dots"><span></span><span></span><span></span></div>
+              <div class="port-url">quadracerta.com.br</div>
+            </div>
+            <div class="port-screen" style="background:#0d1a0d">
+              <div class="port-mock-nav">
+                <div class="port-mock-logo" style="color:#4caf50">Quadra<span style="color:#81c784;font-weight:400"> Certa</span></div>
+                <div class="port-mock-links"><span>Serviços</span><span>Projetos</span><span style="background:#2e7d32;color:#fff;padding:2px 7px;border-radius:20px">Orçamento</span></div>
+              </div>
+              <div class="port-mock-hero">
+                <div class="port-mock-copy">
+                  <div class="port-mock-h1">Sua quadra<br>no nível</div>
+                  <div class="port-mock-p">Manutenção profissional de quadras de saibro</div>
+                  <div class="port-mock-btn" style="background:#2e7d32">Pedir orçamento →</div>
+                </div>
+                <div class="port-mock-img" style="background:linear-gradient(135deg,#1b3a1b,#2e5f2e)"></div>
+              </div>
+              <div class="port-mock-cards">
+                <div class="port-mock-card" style="background:#162316"><div style="color:#81c784;font-size:5px;font-weight:700">Recuperação</div></div>
+                <div class="port-mock-card" style="background:#162316"><div style="color:#81c784;font-size:5px;font-weight:700">Manutenção</div></div>
+                <div class="port-mock-card" style="background:#162316"><div style="color:#81c784;font-size:5px;font-weight:700">Construção</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="port-info">
+          <div class="port-info-top">
+            <span class="port-tag">Portfólio</span>
+            <div class="port-badges">
+              <span class="port-badge">Esportes</span>
+              <span class="port-badge">WhatsApp</span>
+              <span class="port-badge">Orçamentos</span>
+            </div>
+          </div>
+          <h3>Quadra Certa</h3>
+          <p>Presença digital do zero para empresa de manutenção de quadras de saibro — posicionamento estratégico e geração de orçamentos via WhatsApp.</p>
+          <div class="port-metrics">
+            <div class="port-metric"><div class="port-metric-val">Zero→Online</div><div class="port-metric-lbl">Presença digital criada</div></div>
+            <div class="port-metric"><div class="port-metric-val">7d</div><div class="port-metric-lbl">Prazo de entrega</div></div>
+            <div class="port-metric"><div class="port-metric-val"><em>+leads</em></div><div class="port-metric-lbl">Via WhatsApp direto</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="port-cta rv d3">
+      <p>Seu negócio pode ser o próximo a decolar.</p>
+      <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-ghost">
+        Falar sobre o meu projeto
+        <svg class="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     RESULTADOS
+═══════════════════════════════════════════════════════════════════ -->
+<section id="resultados">
+  <div class="container">
+
+    <div class="res-header">
+      <span class="label rv">Resultados</span>
+      <h2 class="rv d1">Clientes que decolaram<br>de verdade.</h2>
+      <p class="res-sub rv d2">Não falamos só de sites bonitos. Falamos de negócios que cresceram.</p>
+    </div>
+
+    <div class="res-metrics rv d2">
+      <div class="res-metric"><div class="res-metric-val" data-target="50" data-prefix="+">+50</div><div class="res-metric-lbl">Projetos entregues</div></div>
+      <div class="res-metric-divider"></div>
+      <div class="res-metric"><div class="res-metric-val" data-target="3" data-suffix="×">3×</div><div class="res-metric-lbl">Mais leads gerados</div></div>
+      <div class="res-metric-divider"></div>
+      <div class="res-metric"><div class="res-metric-val" data-target="7" data-suffix="d">7d</div><div class="res-metric-lbl">Prazo de entrega</div></div>
+      <div class="res-metric-divider"></div>
+      <div class="res-metric"><div class="res-metric-val" data-target="98" data-suffix="%">98%</div><div class="res-metric-lbl">Clientes satisfeitos</div></div>
+    </div>
+
+    <div class="res-grid">
+      <div class="res-card rv d1">
+        <div class="res-stars">★★★★★</div>
+        <p class="res-quote">"Em menos de 2 semanas com o novo site, comecei a receber leads todos os dias pelo WhatsApp. Antes ficava meses sem nenhum contato direto pelo digital."</p>
+        <div class="res-author">
+          <div class="res-avatar">MR</div>
+          <div class="res-author-info"><strong>Marcos Rodrigues</strong><span>Dentista — Porto Alegre, RS</span></div>
+          <div class="res-author-badge">Dental Vitta</div>
+        </div>
+      </div>
+      <div class="res-card rv d2">
+        <div class="res-stars">★★★★★</div>
+        <p class="res-quote">"O processo foi muito mais rápido do que eu esperava. Em 7 dias estava tudo no ar e dobramos os contatos no mês seguinte. Vale cada centavo."</p>
+        <div class="res-author">
+          <div class="res-avatar">AF</div>
+          <div class="res-author-info"><strong>Ana Fernanda</strong><span>Consultora de RH — São Paulo, SP</span></div>
+          <div class="res-author-badge">Sistema próprio</div>
+        </div>
+      </div>
+      <div class="res-card rv d3">
+        <div class="res-stars">★★★★★</div>
+        <p class="res-quote">"Finalmente um site que não é só cartão de visita. O WhatsApp virou uma máquina de agendamento. Não preciso mais ficar respondendo um por um."</p>
+        <div class="res-author">
+          <div class="res-avatar">LC</div>
+          <div class="res-author-info"><strong>Lucas Cardoso</strong><span>Clínica Odontológica — Curitiba, PR</span></div>
+          <div class="res-author-badge">Automação IA</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     FAQ
+═══════════════════════════════════════════════════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-wrap">
+      <div class="faq-left">
+        <span class="label rv">FAQ</span>
+        <h2 class="rv d1">Perguntas<br>frequentes</h2>
+        <p class="rv d2">Respondemos em minutos pelo WhatsApp.</p>
+        <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-accent rv d3">
+          <svg class="btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+            <path d="M20 3c0 0-5.5 2-8.5 7C10 12.5 10 15 11 16.5c1 1.5 3.5 1.5 5 0 5-3 7-8.5 7-8.5z"/>
+            <path d="m12 15-3-3"/>
+          </svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+      <div class="faq-list rv d1">
+        <div class="faq-item open">
+          <div class="faq-q">Isso é só um site ou algo diferente?<div class="faq-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+          <div class="faq-a">É um sistema completo. Página de conversão, integração WhatsApp, automação de respostas e fluxo de qualificação. Uma ferramenta que trabalha por você 24 horas por dia.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Quanto tempo leva para ficar pronto?<div class="faq-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+          <div class="faq-a">Prazo médio de 7 dias úteis. Você acompanha cada etapa e aprova antes de avançar. Nada é publicado sem a sua aprovação.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">E se eu não tiver conteúdo pronto?<div class="faq-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+          <div class="faq-a">Criamos textos estratégicos, estrutura e configuração. Você compartilha as informações sobre o negócio — nós cuidamos do resto, incluindo a copy de conversão.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Funciona para qualquer tipo de negócio?<div class="faq-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+          <div class="faq-a">Qualquer negócio que atende via WhatsApp. Clínicas, escritórios, consultores, prestadores de serviço — o sistema se adapta ao seu fluxo e ao seu cliente ideal.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Preciso de conhecimento técnico?<div class="faq-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+          <div class="faq-a">Zero. Entregamos tudo configurado e funcionando. Você só precisa responder os leads que chegam — o sistema cuida do resto.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Qual o investimento?<div class="faq-arrow"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+          <div class="faq-a">O valor varia conforme o escopo — site, automação e integrações. Começamos com um diagnóstico gratuito para entender o que faz sentido para o seu negócio. Sem proposta genérica.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     CTA FINAL
+═══════════════════════════════════════════════════════════════════ -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-box rv-scale">
+      <canvas class="cta-rocket-canvas" id="ctaRocketCanvas" aria-hidden="true"></canvas>
+      <div class="cta-inner">
+        <span class="label">Pronto para começar?</span>
+        <h2>Seu site deveria trabalhar<br>por você 24 horas por dia</h2>
+        <p>Uma conversa de 10 minutos pode mudar como você capta clientes.</p>
+        <div class="cta-btns">
+          <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20um%20diagnóstico%20gratuito." target="_blank" class="btn btn-accent">
+            <svg class="btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+              <path d="M20 3c0 0-5.5 2-8.5 7C10 12.5 10 15 11 16.5c1 1.5 3.5 1.5 5 0 5-3 7-8.5 7-8.5z"/>
+              <path d="m12 15-3-3"/>
+            </svg>
+            Quero esse sistema
+          </a>
+          <a href="mailto:contato@takeoff.com.br" class="btn btn-ghost-w">Enviar e-mail</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="ft-top">
+    <div class="container">
+      <div class="ft-top-inner">
+        <div class="ft-brand">
+          <a href="#hero" class="ft-logo-wrap">
+            <img src="logo.png" alt="Take Off" class="ft-logo-img"/>
+          </a>
+          <p class="ft-tagline">Sistema de conversão digital.<br>Páginas + automação WhatsApp.</p>
+          <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20um%20diagnóstico%20gratuito." target="_blank" class="btn btn-accent ft-cta">
+            <svg class="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+              <path d="M20 3c0 0-5.5 2-8.5 7C10 12.5 10 15 11 16.5c1 1.5 3.5 1.5 5 0 5-3 7-8.5 7-8.5z"/>
+              <path d="m12 15-3-3"/>
+            </svg>
+            Iniciar decolagem
+          </a>
+        </div>
+        <div class="ft-links">
+          <div class="ft-col">
+            <h4>Navegação</h4>
+            <ul>
+              <li><a href="#solucao">Solução</a></li>
+              <li><a href="#processo">Processo</a></li>
+              <li><a href="#portfolio">Portfólio</a></li>
+              <li><a href="#resultados">Resultados</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="ft-col">
+            <h4>Projetos</h4>
+            <ul>
+              <li><a href="#portfolio">Dental Vitta</a></li>
+              <li><a href="#portfolio">Quadra Certa</a></li>
+            </ul>
+          </div>
+          <div class="ft-col">
+            <h4>Contato</h4>
+            <ul>
+              <li><a href="https://wa.me/5511999999999" target="_blank">WhatsApp</a></li>
+              <li><a href="mailto:contato@takeoff.com.br">E-mail</a></li>
+              <li><a href="https://instagram.com/takeoffagencia" target="_blank">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <div class="container">
+      <div class="ft-btm">
+        <p>&copy; 2026 Take Off. Todos os direitos reservados.</p>
+        <p>Feito com precisão no Brasil. 🇧🇷</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
