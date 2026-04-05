@@ -681,8 +681,22 @@ section { padding: 120px 0; }
   .btn { white-space: normal; text-align: center; }
 
   /* Flow mobile — alinhamento à esquerda */
-  .flow-m-step { align-items: flex-start; padding-left: 8px; }
-  .flow-m-info .flow-step-name { text-align: left; }
+  .flow-m-step {
+    align-items: flex-start !important;
+    padding-left: 8px !important;
+  }
+  .flow-m-info {
+    text-align: left !important;
+    align-items: flex-start !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .flow-step-name {
+    text-align: left !important;
+  }
+  .flow-step-desc {
+    text-align: left !important;
+  }
 
   /* Process sticky stacking — restore on mobile (900px breakpoint disabled it) */
   .proc-step-sticky {
