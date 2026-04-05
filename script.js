@@ -110,6 +110,7 @@
      - 3s pause → restarts
      ═══════════════════════════════════════════════════════════════════ */
   function initRocketFlow() {
+    if (window.matchMedia('(max-width: 768px)').matches) return;
     const track     = document.getElementById('flowTrack');
     const rocket    = document.getElementById('flowRocket');
     const lineFill  = document.getElementById('flowLineFill');
@@ -122,7 +123,6 @@
     const DWELL_TIME     = 350;
     const LAUNCH_SPEED   = 380;
     const PAUSE_AFTER    = 3000;
-    const TRAIL_FADE_MS  = 250;
 
     let currentStep = 0;
     let running     = false;
@@ -396,8 +396,178 @@
     }, { threshold: .3 }).observe(ctaBox);
   }
 
+  /* ═══════════════════════════════════════════════════════════════════
+     FLOW ROCKET — MOBILE VERTICAL
+     Rocket travels bottom→top through the 5 stages (column-reverse layout).
+     Visitante is visually at the bottom, Cliente at the top.
+     ═══════════════════════════════════════════════════════════════════ */
+  function initMobileRocketFlow() {
+    if (!window.matchMedia('(max-width: 768px)').matches) return;
+
+    const container  = document.getElementById('flowMobile');
+    const rocket     = document.getElementById('flowRocketMobile');
+    const lineFill   = document.getElementById('flowLineFillMobile');
+    const smokeEl    = document.getElementById('flowSmoke');
+    const steps      = Array.from(container.querySelectorAll('.flow-m-step'));
+
+    if (!container || !rocket || !steps.length) return;
+
+    const STEP_DURATION = 1500;
+    const DWELL_TIME    = 350;
+    const LAUNCH_SPEED  = 500;
+    const PAUSE_AFTER   = 3000;
+
+    let currentStep = 0;
+    let running     = false;
+    let stepping    = false;
+
+    /* Y center of step[idx] relative to container top.
+       With column-reverse: steps[0] (Visitante) has the largest Y (bottom). */
+    function getStepY(idx) {
+      const cr = container.getBoundingClientRect();
+      const sr = steps[idx].getBoundingClientRect();
+      return sr.top + sr.height / 2 - cr.top;
+    }
+
+    /* rocket SVG is 36×22. margin-left:-18px centers it on the line.
+       top = yCenter - svgHeight/2 (11px) to center vertically. */
+    function setRocketY(yCenter) {
+      rocket.style.top = (yCenter - 11) + 'px';
+    }
+
+    function setLineFill(yCenter) {
+      const h = Math.max(0, container.offsetHeight - yCenter);
+      lineFill.style.height  = h + 'px';
+      lineFill.style.opacity = '1';
+    }
+
+    function clearLineFill() {
+      lineFill.style.transition = 'opacity 250ms ease';
+      lineFill.style.opacity = '0';
+      setTimeout(() => {
+        lineFill.style.transition = '';
+        lineFill.style.height = '0';
+        lineFill.style.opacity = '';
+      }, 300);
+    }
+
+    function activateStep(idx, on) {
+      if (steps[idx]) steps[idx].classList.toggle('active', on);
+    }
+
+    function deactivateAll() { steps.forEach(s => s.classList.remove('active')); }
+
+    function showSmoke() {
+      if (!smokeEl) return;
+      const r = rocket.getBoundingClientRect();
+      smokeEl.style.left = (r.left + r.width  / 2) + 'px';
+      smokeEl.style.top  = (r.top  + r.height / 2) + 'px';
+      smokeEl.classList.remove('visible');
+      void smokeEl.offsetWidth;
+      smokeEl.classList.add('visible');
+    }
+
+    function hideRocket() {
+      rocket.style.transition = 'opacity .2s';
+      rocket.style.opacity = '0';
+    }
+
+    function showRocket() {
+      rocket.style.transition = 'none';
+      rocket.style.opacity = '1';
+    }
+
+    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+    function easeIn(t)  { return t * t * t; }
+    function lerp(a, b, t) { return a + (b - a) * t; }
+
+    function doStep() {
+      if (stepping) return;
+      stepping = true;
+
+      /* first step: start 40px below Visitante (enters from bottom) */
+      const fromY = currentStep === 0
+        ? getStepY(0) + 40
+        : getStepY(currentStep - 1);
+      const toY   = getStepY(currentStep);
+      const start = performance.now();
+
+      function tick(now) {
+        const t  = Math.min((now - start) / STEP_DURATION, 1);
+        const et = easeOut(t);
+        const ry = lerp(fromY, toY, et);
+
+        setRocketY(ry);
+        setLineFill(ry);
+        if (t > 0.7) activateStep(currentStep, true);
+
+        if (t < 1) { requestAnimationFrame(tick); return; }
+
+        setTimeout(() => {
+          activateStep(currentStep, false);
+          clearLineFill();
+          currentStep++;
+          stepping = false;
+          currentStep >= steps.length ? doLaunch() : doStep();
+        }, DWELL_TIME);
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    function doLaunch() {
+      const fromY  = getStepY(steps.length - 1);   /* Cliente Y (top) */
+      const exitY  = -60;                            /* above container */
+      const fixedH = Math.max(0, container.offsetHeight - fromY);
+      const start  = performance.now();
+
+      function tick(now) {
+        const t     = Math.min((now - start) / LAUNCH_SPEED, 1);
+        const et    = easeIn(t);
+        const ry    = lerp(fromY, exitY, et);
+
+        setRocketY(ry);
+        lineFill.style.height  = fixedH + 'px';
+        lineFill.style.opacity = (1 - et).toString();
+
+        if (t < 1) { requestAnimationFrame(tick); return; }
+
+        showSmoke();
+        hideRocket();
+        deactivateAll();
+        lineFill.style.opacity = '0';
+        lineFill.style.height  = '0';
+
+        setTimeout(() => {
+          currentStep = 0;
+          stepping    = false;
+          showRocket();
+          setRocketY(getStepY(0) + 40);
+          doStep();
+        }, PAUSE_AFTER);
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    const flowCard = document.querySelector('.flow-card');
+    if (!flowCard) return;
+
+    new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !running) {
+          running = true;
+          showRocket();
+          setRocketY(getStepY(0) + 40);
+          doStep();
+        }
+      });
+    }, { threshold: 0.2 }).observe(flowCard);
+  }
+
   /* ─── INIT ───────────────────────────────────────────────────────── */
   initRocketFlow();
+  initMobileRocketFlow();
   initCtaRocket();
 
 })();
