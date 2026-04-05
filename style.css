@@ -610,10 +610,26 @@ section { padding: 120px 0; }
   .flow-card  { padding: 36px 20px 28px; }
   .flow-steps, .flow-rocket, .flow-line-bg, .flow-line-fill { display: none; }
   .flow-mobile {
-    display: flex; flex-direction: column; position: relative; padding-left: 32px;
+    display: flex; flex-direction: column-reverse; position: relative; padding-left: 32px; overflow: hidden;
   }
   .flow-mobile::before { content: ''; position: absolute; left: 14px; top: 0; bottom: 0; width: 1px; background: var(--s2); }
-  .flow-m-dot { position: absolute; left: 10px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px rgba(240,61,0,.4); animation: dotTravelV 8s var(--ease) infinite; z-index: 2; }
+  .flow-m-dot { display: none; }
+  .flow-m-rocket {
+    position: absolute; left: 14px; margin-left: -18px;
+    transform: rotate(-90deg); z-index: 10; pointer-events: none; opacity: 0;
+    filter: drop-shadow(0 0 6px rgba(240,61,0,.8)) drop-shadow(0 0 16px rgba(240,61,0,.4));
+    transition: opacity .3s;
+  }
+  .flow-m-line-fill {
+    position: absolute; left: 13px; width: 2px; bottom: 0; height: 0;
+    background: linear-gradient(to top, rgba(240,61,0,.15) 0%, #f03d00 100%);
+    box-shadow: 0 0 14px rgba(240,61,0,.6), 0 0 32px rgba(240,61,0,.25);
+    z-index: 1; opacity: 0; border-radius: 2px; pointer-events: none;
+  }
+  .flow-m-step.active .flow-icon { border-color: var(--accent); background: rgba(240,61,0,.07); box-shadow: 0 0 20px rgba(240,61,0,.2), 0 0 40px rgba(240,61,0,.08); transform: scale(1.08); }
+  .flow-m-step.active .flow-icon svg { stroke: var(--accent); }
+  .flow-m-step.active .flow-step-name { color: var(--accent); }
+  .sol-statement .btn { align-self: center; }
   .flow-m-step { display: flex; align-items: center; gap: 14px; padding: 16px 0; }
   .flow-m-step .flow-icon { width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0; }
   .flow-m-step .flow-icon svg { width: 17px; height: 17px; }
@@ -631,4 +647,69 @@ section { padding: 120px 0; }
   .container { padding: 0 20px; }
   .hero-btns, .cta-btns { flex-direction: column; align-items: center; }
   .ft-links { grid-template-columns: 1fr; }
+}
+
+/* ─── MOBILE EXTENDED FIXES ──────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  /* Container padding fix (applies to all sizes ≤768px) */
+  .container { padding: 0 20px; }
+
+  /* Process intro: remove hardcoded 32px side padding */
+  .proc-intro { padding: 64px 20px 48px; }
+
+  /* Process step number: scale down on mobile */
+  .proc-step-num { font-size: 2.4rem; }
+
+  /* Process step description: allow full width on single-col */
+  .proc-step-desc { max-width: 100%; }
+
+  /* Results honest box: reduce side padding, stack vertically */
+  .res-honest { flex-direction: column; align-items: flex-start; padding: 24px 20px; gap: 14px; }
+
+  /* Footer top: reduce top/bottom padding */
+  .ft-top { padding: 48px 0 36px; }
+
+  /* Sol-statement: handled by 900px already, but ensure padding ok */
+  .sol-statement { padding: 24px 20px; }
+
+  /* Hero glows: shrink so they don't inflate horizontal scroll */
+  .hero-glow-1 { width: 480px; height: 480px; }
+  .hero-glow-2 { display: none; }
+
+  /* Btn: allow wrapping on very small screens */
+  .btn { white-space: normal; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  /* Sections: reduce padding on very small screens */
+  section { padding: 56px 0; }
+  .proc-intro { padding: 48px 20px 36px; }
+
+  /* Results metrics: full-width on small phones */
+  .res-metric { flex: 0 0 100%; border-bottom: 1px solid var(--s1); }
+  .res-metric:nth-child(5) { border-bottom: 1px solid var(--s1); }
+  .res-metric:last-child   { border-bottom: none; }
+
+  /* Process visual card: reduce internal padding */
+  .proc-step-visual { padding: 24px 16px; }
+  .proc-step-inner  { padding: 40px 0; gap: 28px; }
+
+  /* CTA box */
+  .cta-box { padding: 40px 16px; }
+
+  /* Flow card */
+  .flow-card { padding: 28px 16px 24px; }
+
+  /* Res honest */
+  .res-honest { padding: 20px 16px; }
+
+  /* Hero glows: minimize */
+  .hero-glow-1 { width: 300px; height: 300px; top: -120px; }
+
+  /* FAQ left gap */
+  .faq-wrap { gap: 28px; }
+
+  /* Footer brand tagline */
+  .ft-tagline { max-width: 100%; }
 }
