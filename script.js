@@ -760,4 +760,17 @@
 
   initDemoAnimation();
 
+  const solCards = document.querySelectorAll('.sol-card');
+  if (solCards.length) {
+    const solObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          solObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    solCards.forEach(c => solObs.observe(c));
+  }
+
 })();
