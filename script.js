@@ -570,4 +570,194 @@
   initMobileRocketFlow();
   initCtaRocket();
 
+  function initLiveFeed() {
+    const feed    = document.getElementById('liveFeed');
+    const counter = document.getElementById('liveCounter');
+    if (!feed || !counter) return;
+
+    const nomes = ['João S.','Maria L.','Carlos M.','Ana P.','Pedro R.','Beatriz F.','Lucas T.','Fernanda O.'];
+    const msgs  = [
+      'Interesse em implante dental',
+      'Quero agendar avaliação',
+      'Informações sobre clareamento',
+      'Preciso de atendimento urgente',
+      'Vim pelo site de vocês',
+      'Interesse em facetas',
+    ];
+
+    let secondsSinceLast = 0;
+    let timerInterval = null;
+
+    function formatTime(s) {
+      if (s < 60) return s + 's atrás';
+      const m = Math.floor(s / 60);
+      if (m < 60) return m + 'min atrás';
+      return Math.floor(m / 60) + 'h atrás';
+    }
+
+    function startTimer() {
+      clearInterval(timerInterval);
+      secondsSinceLast = 0;
+      counter.textContent = 'agora';
+      timerInterval = setInterval(() => {
+        secondsSinceLast++;
+        counter.textContent = formatTime(secondsSinceLast);
+      }, 1000);
+    }
+
+    function addCard() {
+      const nome = nomes[Math.floor(Math.random() * nomes.length)];
+      const msg  = msgs[Math.floor(Math.random() * msgs.length)];
+      const ini  = nome.split(' ').map(w => w[0]).join('').slice(0, 2);
+
+      const card = document.createElement('div');
+      card.className = 'live-card';
+      card.innerHTML = `
+        <div class="live-avatar">${ini}</div>
+        <div class="live-info">
+          <div class="live-name">${nome}</div>
+          <div class="live-msg">${msg}</div>
+        </div>
+        <div class="live-badge"></div>
+      `;
+
+      feed.insertBefore(card, feed.firstChild);
+      startTimer();
+
+      const cards = feed.querySelectorAll('.live-card');
+      if (cards.length > 3) cards[cards.length - 1].remove();
+    }
+
+    const section3 = document.querySelector('.proc-step-sticky[data-step="3"]');
+    if (!section3) return;
+
+    let started = false;
+    new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && !started) {
+        started = true;
+        addCard();
+        setTimeout(addCard, 2400);
+        setTimeout(addCard, 5200);
+        setInterval(addCard, 7000);
+      }
+    }, { threshold: 0.3 }).observe(section3);
+  }
+
+  initLiveFeed();
+
+  function initDemoAnimation() {
+    const desktop = document.getElementById('demoDesktop');
+    const phone   = document.getElementById('demoPhone');
+    const cursor  = document.getElementById('demoCursor');
+    const rocket  = document.getElementById('demoRocket');
+    const ctaBtn  = document.getElementById('demoCta');
+    const msg1    = document.getElementById('demoMsg1');
+    const msg2    = document.getElementById('demoMsg2');
+    const typing  = document.getElementById('demoTyping');
+
+    if (!desktop || !phone) return;
+
+    function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
+
+    async function runSequence() {
+      desktop.style.opacity = '1';
+      desktop.style.transform = 'scale(1)';
+      phone.style.opacity = '0';
+      phone.style.transform = 'scale(.92)';
+      phone.style.pointerEvents = 'none';
+      msg1.style.opacity = '0';
+      msg1.style.transform = 'translateY(6px)';
+      msg2.style.opacity = '0';
+      msg2.style.transform = 'translateY(6px)';
+      typing.style.opacity = '0';
+      rocket.style.opacity = '0';
+
+      const btnRect = ctaBtn.getBoundingClientRect();
+      const wrapRect = desktop.getBoundingClientRect();
+
+      cursor.style.left = '20px';
+      cursor.style.top  = '40px';
+      cursor.style.opacity = '1';
+
+      await sleep(600);
+
+      const targetX = btnRect.left - wrapRect.left + btnRect.width / 2 - 10;
+      const targetY = btnRect.top  - wrapRect.top  + btnRect.height / 2 - 10;
+      cursor.style.left = targetX + 'px';
+      cursor.style.top  = targetY + 'px';
+
+      await sleep(700);
+
+      ctaBtn.style.animation = 'demoCursorClick .25s ease';
+      ctaBtn.style.transform = 'scale(.92)';
+      await sleep(150);
+      ctaBtn.style.transform = 'scale(1)';
+
+      await sleep(300);
+
+      cursor.style.opacity = '0';
+
+      rocket.style.position = 'absolute';
+      rocket.style.top = '50%';
+      rocket.style.left = '-60px';
+      rocket.style.transform = 'translateY(-50%)';
+      rocket.style.opacity = '1';
+      rocket.style.transition = 'left .7s cubic-bezier(.4,0,.2,1)';
+
+      await sleep(50);
+      rocket.style.left = 'calc(100% + 60px)';
+
+      await sleep(650);
+      rocket.style.opacity = '0';
+
+      desktop.style.opacity = '0';
+      desktop.style.transform = 'scale(.96)';
+
+      await sleep(400);
+
+      phone.style.opacity = '1';
+      phone.style.transform = 'scale(1)';
+      phone.style.pointerEvents = 'auto';
+      document.querySelector('.demo-wrap').classList.add('phone-active');
+
+      await sleep(700);
+
+      msg1.style.opacity = '1';
+      msg1.style.transform = 'translateY(0)';
+
+      await sleep(900);
+
+      typing.style.opacity = '1';
+
+      await sleep(1200);
+
+      typing.style.opacity = '0';
+      msg2.style.opacity = '1';
+      msg2.style.transform = 'translateY(0)';
+
+      await sleep(3500);
+
+      rocket.style.transition = 'none';
+      rocket.style.left = '-60px';
+      rocket.style.opacity = '0';
+      document.querySelector('.demo-wrap').classList.remove('phone-active');
+
+      await sleep(200);
+      runSequence();
+    }
+
+    const section3 = document.querySelector('.proc-step-sticky[data-step="3"]');
+    if (!section3) return;
+
+    let started = false;
+    new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && !started) {
+        started = true;
+        runSequence();
+      }
+    }, { threshold: 0.3 }).observe(section3);
+  }
+
+  initDemoAnimation();
+
 })();
