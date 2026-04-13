@@ -212,6 +212,9 @@ section { padding: 120px 0; }
   max-width: 900px; margin-bottom: 20px;
   opacity: 0; animation: blurIn 1s .15s var(--ease) forwards;
 }
+.line-2 {
+  white-space: nowrap;
+}
 .hero-h1 em {
   font-style: italic; color: var(--accent);
   text-shadow: 0 0 32px rgba(240,61,0,.3), 0 0 8px rgba(240,61,0,.15);
