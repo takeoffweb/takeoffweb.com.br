@@ -208,28 +208,9 @@ section { padding: 120px 0; }
 .hero-badge-dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; animation: pulseGlow 2s infinite; }
 
 .hero-h1 {
-  font-size: clamp(2.8rem, 5.5vw, 4.6rem);
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  max-width: 900px;
-  margin-bottom: 20px;
-}
-
-.line-2 {
-  white-space: nowrap;
-  color: var(--accent);
-  font-style: italic;
-}
-
-@media (max-width: 768px) {
-  .hero-h1 {
-    max-width: 100%;
-    line-height: 1.15;
-  }
-
-  .line-2 {
-    white-space: normal;
-  }
+  font-size: clamp(2.8rem, 5.5vw, 4.6rem); line-height: 1.06; letter-spacing: -.04em;
+  max-width: 720px; margin-bottom: 20px;
+  opacity: 0; animation: blurIn 1s .15s var(--ease) forwards;
 }
 .hero-h1 em {
   font-style: italic; color: var(--accent);
