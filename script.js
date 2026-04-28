@@ -662,4 +662,181 @@
     solCards.forEach(c => solObs.observe(c));
   }
 
+  /* ── Glitch trigger ── */
+  const glitchEl = document.querySelector('.sol-glitch');
+  if (glitchEl) {
+    new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        glitchEl.classList.add('trigger');
+      }
+    }, { threshold: 0.5 }).observe(glitchEl);
+  }
+
+  /* ── Portfolio Player ── */
+  function initPortfolioPlayers() {
+    const cards = document.querySelectorAll('.port-card');
+    const cardDental = cards[0];
+    const cardQuadra = cards[1];
+
+    const innerDental  = document.getElementById('innerDental');
+    const innerQuadra  = document.getElementById('innerQuadra');
+    const cursorDental = document.getElementById('cursorDental');
+    const cursorQuadra = document.getElementById('cursorQuadra');
+    const flashDental  = document.getElementById('flashDental');
+    const flashQuadra  = document.getElementById('flashQuadra');
+
+    if (!innerDental || !innerQuadra) return;
+
+    let timers = [];
+    let activeHover = null;
+    let autoLoopRunning = false;
+
+    function clearTimers() {
+      timers.forEach(t => clearTimeout(t));
+      timers = [];
+    }
+
+    function t(fn, ms) {
+      timers.push(setTimeout(fn, ms));
+    }
+
+    function resetCard(inner, cursor, flash) {
+      inner.style.transition = 'none';
+      inner.style.transform  = 'translateY(0)';
+      cursor.style.opacity   = '0';
+      cursor.style.top       = '15%';
+      cursor.style.left      = '20%';
+      flash.classList.remove('visible');
+    }
+
+    function animateCard(inner, cursor, flash, scrollTo, onNearEnd) {
+      inner.style.transition = 'transform 1.2s cubic-bezier(0.1,0.8,0.2,1)';
+      inner.style.transform  = 'translateY(-' + scrollTo + '%)';
+
+      t(() => {
+        cursor.style.opacity = '1';
+        cursor.style.top     = '28%';
+        cursor.style.left    = '32%';
+      }, 1200);
+
+      t(() => {
+        cursor.style.top  = '22%';
+        cursor.style.left = '24%';
+      }, 2100);
+
+      t(() => {
+        cursor.style.top  = '18%';
+        cursor.style.left = '20%';
+      }, 2900);
+
+      t(() => {
+        flash.classList.add('visible');
+      }, 3800);
+
+      t(() => {
+        flash.classList.remove('visible');
+      }, 5000);
+
+      t(() => {
+        if (onNearEnd) onNearEnd();
+      }, 5000);
+    }
+
+    function startDental(chain) {
+      resetCard(innerDental, cursorDental, flashDental);
+      resetCard(innerQuadra, cursorQuadra, flashQuadra);
+      void innerDental.offsetWidth;
+      animateCard(innerDental, cursorDental, flashDental, 58, chain ? () => {
+        if (!activeHover) startQuadra(true);
+      } : null);
+    }
+
+    function startQuadra(chain) {
+      resetCard(innerQuadra, cursorQuadra, flashQuadra);
+      resetCard(innerDental, cursorDental, flashDental);
+      void innerQuadra.offsetWidth;
+      animateCard(innerQuadra, cursorQuadra, flashQuadra, 65, chain ? () => {
+        if (!activeHover) startDental(true);
+      } : null);
+    }
+
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) {
+      new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting && !autoLoopRunning) {
+          autoLoopRunning = true;
+          startDental(true);
+        }
+      }, { threshold: 0.2 }).observe(portfolioSection);
+    }
+
+    cardDental.addEventListener('mouseenter', () => {
+      clearTimers();
+      activeHover = 'dental';
+      startDental(false);
+    });
+
+    cardDental.addEventListener('mouseleave', () => {
+      if (activeHover === 'dental') {
+        activeHover = null;
+        clearTimers();
+        resetCard(innerDental, cursorDental, flashDental);
+        t(() => startQuadra(true), 800);
+      }
+    });
+
+    cardQuadra.addEventListener('mouseenter', () => {
+      clearTimers();
+      activeHover = 'quadra';
+      startQuadra(false);
+    });
+
+    cardQuadra.addEventListener('mouseleave', () => {
+      if (activeHover === 'quadra') {
+        activeHover = null;
+        clearTimers();
+        resetCard(innerQuadra, cursorQuadra, flashQuadra);
+        t(() => startDental(true), 800);
+      }
+    });
+  }
+
+  initPortfolioPlayers();
+
+  /* ── Split Animation ── */
+  function initSplitAnimation() {
+    const wrap  = document.getElementById('splitWrap');
+    const line  = document.getElementById('splitLine');
+    const items = wrap ? Array.from(wrap.querySelectorAll('.split-item')) : [];
+
+    if (!wrap || !line || !items.length) return;
+
+    const SCAN_DURATION  = 1800;
+    const ITEMS_PER_SIDE = 4;
+
+    function runScan() {
+      line.classList.remove('scanning');
+      void line.offsetWidth;
+
+      items.forEach(i => i.classList.remove('lit'));
+
+      line.classList.add('scanning');
+
+      items.forEach(item => {
+        const idx   = parseInt(item.dataset.index);
+        const delay = 400 + (idx * (SCAN_DURATION / ITEMS_PER_SIDE) * 0.6);
+        setTimeout(() => item.classList.add('lit'), delay);
+      });
+    }
+
+    new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        setTimeout(runScan, 300);
+      }
+    }, { threshold: 0.3 }).observe(wrap);
+  }
+
+  initSplitAnimation();
+
+
 })();
